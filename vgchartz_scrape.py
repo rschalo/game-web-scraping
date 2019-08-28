@@ -14,3 +14,6 @@ ns_html_file.close()
 soup_file_prep = open('nintendo_switch_game_rankings')
 ns_file_soup = bs4.BeautifulSoup(soup_file_prep, features='lxml')
 #convert downloaded HTML to bs object
+for i in ns_file_soup.select('a[href^="http://www.vgchartz.com/game/"]'):
+    print(i.text)
+#iterate through and print the video game name, credit to Anand S Kumar at https://stackoverflow.com/questions/32126358/how-do-i-get-the-value-of-a-soup-select
