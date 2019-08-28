@@ -12,3 +12,6 @@ for chunk in res.iter_content(100000):
     ns_html_file.write(chunk)
 ns_html_file.close()
 #create a local copy of HTML ranking page at URL in line 7
+soup_file_prep = open('nintendo_switch_game_rankings')
+ns_file_soup = bs4.BeautifulSoup(soup_file_prep, features='lxml')
+#convert downloaded HTML to bs object
