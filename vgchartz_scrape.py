@@ -16,6 +16,6 @@ ns_file_soup = bs4.BeautifulSoup(soup_file_prep, features='lxml')
 #convert downloaded HTML to bs object
 ns_game_titles = open('ns_game_names', 'w')
 for i in ns_file_soup.select('a[href^="http://www.vgchartz.com/game/"]'):
-    ns_game_titles.write(i.text)
+    ns_game_titles.write(i.text + '\n')
 ns_game_titles.close()
 #write game names to a file
