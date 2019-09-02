@@ -19,4 +19,8 @@ ns_file_soup = bs4.BeautifulSoup(soup_file_prep, features='lxml')
 ns_game_titles = open('ns_game_names.csv', 'w')
 for i in ns_file_soup.select('a[href^="http://www.vgchartz.com/game/"]'):
     ns_game_titles.write(i.text + '\n')
+ns_game_titles.close()
 #write game names to a csv file
+df = pd.read_csv('ns_game_names.csv', sep='\n', encoding = 'ISO-8859-1')
+#https://stackoverflow.com/questions/18171739/unicodedecodeerror-when-reading-csv-file-in-pandas-with-python for solving encoding error
+print(df.head())
