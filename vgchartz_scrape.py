@@ -2,6 +2,8 @@ import pandas as pd
 import requests
 import pathlib
 import bs4
+import csv
+import sys
 
 res = requests.get('http://www.vgchartz.com/gamedb/games.php?console=NS')
 res.raise_for_status()
@@ -14,8 +16,7 @@ ns_html_file.close()
 soup_file_prep = open('nintendo_switch_game_rankings.txt')
 ns_file_soup = bs4.BeautifulSoup(soup_file_prep, features='lxml')
 #convert downloaded HTML to bs object
-ns_game_titles = open('ns_game_names.txt', 'w')
+ns_game_titles = open('ns_game_names.csv', 'w')
 for i in ns_file_soup.select('a[href^="http://www.vgchartz.com/game/"]'):
     ns_game_titles.write(i.text + '\n')
-ns_game_titles.close()
-#write game names to a file
+#write game names to a csv file
