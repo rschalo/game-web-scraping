@@ -12,6 +12,7 @@ res.raise_for_status()
 ns_html_file = open('nintendo_switch_game_rankings.txt', 'wb')
 for chunk in res.iter_content(100000):
     ns_html_file.write(chunk)
+    print('chunking')
 ns_html_file.close()
 #create a local copy of HTML ranking page at URL in line 7
 
